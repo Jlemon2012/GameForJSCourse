@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Honk&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.honk-<uniquifier> {
+    font-family: "Honk", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "MORF" 15,
+      "SHLN" 50;
+}
+
+:root {
+    scroll-behavior: smooth;
+    font-family: Honk, sans-serif;
+    /* background-image: url("../img/background_picture.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center; */
+}
+
+img {
+    display: block;
+    max-width: 100%
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+    text-decoration: none;
+}
+
+h1 {
+    text-align: center;
+    font-size: 75px;
+}
+
+.menu__container {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content: center;
+}
+
+.game__content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.leaderboard__container {
+    display: grid;
+    grid-template-columns: 0.5fr, repeat(2, 1fr);
+    grid-template-rows: repeat(11, 1fr);
+}
