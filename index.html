@@ -9,7 +9,7 @@
     <title>ClickerGame</title>
     <link rel="icon" href="#" type="image/x-icon" />
     <link rel="stylesheet" href="./css/index.css" />
-    <link rel="stylesheet" href="./css/coursor.css" />
+    <link rel="stylesheet" href="./css/cursor.css" />
     <script
       src="https://code.jquery.com/jquery-3.7.1.slim.js"
       integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc="
@@ -94,14 +94,17 @@
         </section>
         <section class="gameboard container">
           <div class="game__place">
-            <h4 class="game__score">Score</h4>
-            <img
-              src="#"
-              alt="Button needed to be clicked"
-              class="push__button"
-            />
+            <h4 class="game__score--title">Score</h4>
+            <p class="game__score">0</p>
+            <div class="button__container">
+              <img
+                src="./image/skin-button/button_default.png"
+                alt="Button needed to be clicked"
+                class="push__button"
+              />
+            </div>
             <audio class="click__sound">
-              <source src="#" type="audio/mp3" />
+              <source src="./sound/default_button_sound.mp3" type="audio/mp3" />
             </audio>
             <button class="game__button--save">Save</button>
           </div>

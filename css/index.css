@@ -73,3 +73,7 @@ h1 {
 .column3 {
     width: 100px;
 }
+
+.button__container:hover img {
+    cursor: url(/image/skin-cursor/default_cursor.png), auto;
+}
