@@ -56,8 +56,20 @@ h1 {
     grid-template-columns: 1fr 2fr;
 }
 
-.leaderboard__container {
+/* .leaderboard__container {
     display: grid;
     grid-template-columns: 0.5fr, repeat(2, 1fr);
     grid-template-rows: repeat(11, 1fr);
+} */
+
+.column1 {
+    width: 50px;
+}
+
+.column2 {
+    width: 100px;
+}
+
+.column3 {
+    width: 100px;
 }
