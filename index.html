@@ -1,6 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head> </head>
-  <body></body>
-  <footer></footer>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=0"
+    />
+    <title>ClickerGame</title>
+    <link rel="icon" href="#" type="image/x-icon" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="coursor.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.slim.js"
+      integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header class="game__menu container">
+      <h1>Super Clicker</h1>
+      <nav class="menu__container">
+        <h3 class="meun__option"><a href="#">Skins</a></h3>
+        <h3 class="meun__option"><a href="#">Upgrades</a></h3>
+      </nav>
+    </header>
+    <main>
+      <section class="leaderboard container">
+        <div class="leaderboard__container">
+          <h2 class="leaderboard__title">Leaderboard</h2>
+          <p class="leaderboard__text">№</p>
+          <p class="leaderboard__text">Nickname</p>
+          <p class="leaderboard__text">Score</p>
+        </div>
+      </section>
+      <section class="gameboard container">
+        <div class="game__place">
+          <h4 class="game__score">Score</h4>
+          <img src="#" alt="Button needed to be clicked" class="push__button" />
+          <audio class="click__sound">
+            <source src="#" type="audio/mp3" />
+          </audio>
+          <button class="game__button--save">Save</button>
+        </div>
+      </section>
+    </main>
+    <footer></footer>
+  </body>
 </html>
