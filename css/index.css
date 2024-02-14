@@ -19,16 +19,15 @@
 :root {
     scroll-behavior: smooth;
     font-family: Honk, sans-serif;
-    /* background-image: url("../img/background_picture.png");
+    background-image: url("https://cdn.pixabay.com/photo/2019/05/29/16/00/retro-4237850_1280.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    background-position: center; */
 }
 
 img {
     display: block;
-    max-width: 100%
+    max-width: 100%;
 }
 
 a,
@@ -44,23 +43,58 @@ h1 {
     font-size: 75px;
 }
 
+.container {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
 .menu__container {
     display: flex;
     flex-direction: row;
     gap: 30px;
     justify-content: center;
+    margin-top: 60px;
+    font-size: 40px;
 }
 
 .game__content {
     display: grid;
     grid-template-columns: 1fr 2fr;
+    gap: 50px;
+    margin-top: 90px;
 }
 
-/* .leaderboard__container {
-    display: grid;
-    grid-template-columns: 0.5fr, repeat(2, 1fr);
-    grid-template-rows: repeat(11, 1fr);
-} */
+.gameboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.leaderboard__title {
+    font-size: 40px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    font-size: 20px;
+  }
+
+  th {
+    background-color: #4b4242;
+    width: 10%;
+  }
+
+  td {
+    background-color: #e6cbcb38;
+  }
 
 .column1 {
     width: 50px;
@@ -74,6 +108,66 @@ h1 {
     width: 100px;
 }
 
+.button__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .button__container:hover img {
     cursor: url(/image/skin-cursor/default_cursor.png), auto;
+}
+
+.push__button {
+    width: 65%;
+    height: 65%;
+    transition: transform 1s ease-in-out;
+}
+
+.game__place {
+    background-image: url(https://cdn.pixabay.com/photo/2014/05/24/00/07/woven-cloth-352481_1280.jpg);
+    padding: 20px;
+    border: 2px solid;
+    border-image: linear-gradient(to right, #ffcc00, #ff6600);
+    border-image-slice: 1;
+}
+
+.score {
+    font-size: 30px;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.game__button--save {
+    font-family: Honk, sans-serif;
+    font-size: 30px;
+    background: burlywood;
+    padding: 5px;
+    width: 80px;
+}
+
+.nickname__setup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+#modal__nickname {
+    display: none;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#closeBtn {
+    cursor: pointer;
+    float: right;
 }

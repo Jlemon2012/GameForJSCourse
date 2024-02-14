@@ -25,77 +25,89 @@
       </nav>
     </header>
     <main>
-      <div class="game__content">
+      <div class="nickname__setup">
+        <div id="modal__nickname">
+          <label for="nicknameInput">Enter your Nickname:</label>
+          <input type="text" id="nicknameInput" />
+          <input type="submit" class="button__submit" />
+        </div>
+      </div>
+      <div class="game__content container">
         <section class="leaderboard container">
           <div class="leaderboard__container">
             <h2 class="leaderboard__title">Leaderboard</h2>
-            <table>
-              <thead>
-                <tr>
-                  <th scope="col" class="column1">N</th>
-                  <th scope="col" class="column2">Nickname</th>
-                  <th scope="col" class="column3">Score</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>HTML tables</td>
-                  <td>22</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>HTML tables</td>
-                  <td>22</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>HTML tables</td>
-                  <td>22</td>
-                </tr>
-                <tr>
-                  <th scope="row">4</th>
-                  <td>HTML tables</td>
-                  <td>22</td>
-                </tr>
-                <tr>
-                  <th scope="row">5</th>
-                  <td>HTML tables</td>
-                  <td>22</td>
-                </tr>
-                <tr>
-                  <th scope="row">6</th>
-                  <td>HTML tables</td>
-                  <td>22</td>
-                </tr>
-                <tr>
-                  <th scope="row">7</th>
-                  <td>HTML tables</td>
-                  <td>22</td>
-                </tr>
-                <tr>
-                  <th scope="row">8</th>
-                  <td>HTML tables</td>
-                  <td>22</td>
-                </tr>
-                <tr>
-                  <th scope="row">9</th>
-                  <td>HTML tables</td>
-                  <td>22</td>
-                </tr>
-                <tr>
-                  <th scope="row">10</th>
-                  <td>HTML tables</td>
-                  <td>22</td>
-                </tr>
-              </tbody>
-            </table>
+            <br />
+            <div class="leaderboard__table">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col" class="column1">N</th>
+                    <th scope="col" class="column2">Nickname</th>
+                    <th scope="col" class="column3">Score</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>HTML tables</td>
+                    <td>22</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>HTML tables</td>
+                    <td>22</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>HTML tables</td>
+                    <td>22</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>HTML tables</td>
+                    <td>22</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td>HTML tables</td>
+                    <td>22</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">6</th>
+                    <td>HTML tables</td>
+                    <td>22</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">7</th>
+                    <td>HTML tables</td>
+                    <td>22</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">8</th>
+                    <td>HTML tables</td>
+                    <td>22</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">9</th>
+                    <td>HTML tables</td>
+                    <td>22</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">10</th>
+                    <td>HTML tables</td>
+                    <td>22</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </section>
         <section class="gameboard container">
           <div class="game__place">
-            <h4 class="game__score--title">Score</h4>
-            <p class="game__score">0</p>
+            <div class="score">
+              <h4 class="game__score--title">Score:</h4>
+              <p class="game__score">0</p>
+            </div>
             <div class="button__container">
               <img
                 src="./image/skin-button/button_default.png"
@@ -106,7 +118,7 @@
             <audio class="click__sound">
               <source src="./sound/default_button_sound.mp3" type="audio/mp3" />
             </audio>
-            <button class="game__button--save">Save</button>
+            <button class="game__button--save">SAVE</button>
           </div>
         </section>
       </div>
