@@ -20,8 +20,20 @@
     <header class="game__menu container">
       <h1>Super Clicker</h1>
       <nav class="menu__container">
-        <h3 class="menu__option"><a href="#">Skins</a></h3>
-        <h3 class="menu__option"><a href="#">Upgrades</a></h3>
+        <h3 class="menu__option--skins"><a href="#">Skins</a></h3>
+        <h3 class="menu__option--upgrades"><a href="#">Upgrades</a></h3>
+        <div class="upgrade__setup--modal">
+          <div id="upgrade__category">
+            <p>Modificator</p>
+            <p></p>
+            <br />
+            <p>Bonus</p>
+            <p></p>
+          </div>
+          <div id="skins__items">
+            <div id="items__container"></div>
+          </div>
+        </div>
       </nav>
     </header>
     <main>
@@ -46,56 +58,56 @@
                     <th scope="col" class="column3">Score</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody class="leaderboard__content">
                   <tr>
                     <th scope="row">1</th>
-                    <td>HTML tables</td>
-                    <td>22</td>
+                    <td class="leader__nickname"></td>
+                    <td class="leader__score"></td>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
-                    <td>HTML tables</td>
-                    <td>22</td>
+                    <td class="leader__nickname"></td>
+                    <td class="leader__score"></td>
                   </tr>
                   <tr>
                     <th scope="row">3</th>
-                    <td>HTML tables</td>
-                    <td>22</td>
+                    <td class="leader__nickname"></td>
+                    <td class="leader__score"></td>
                   </tr>
                   <tr>
                     <th scope="row">4</th>
-                    <td>HTML tables</td>
-                    <td>22</td>
+                    <td class="leader__nickname"></td>
+                    <td class="leader__score"></td>
                   </tr>
                   <tr>
                     <th scope="row">5</th>
-                    <td>HTML tables</td>
-                    <td>22</td>
+                    <td class="leader__nickname"></td>
+                    <td class="leader__score"></td>
                   </tr>
                   <tr>
                     <th scope="row">6</th>
-                    <td>HTML tables</td>
-                    <td>22</td>
+                    <td class="leader__nickname"></td>
+                    <td class="leader__score"></td>
                   </tr>
                   <tr>
                     <th scope="row">7</th>
-                    <td>HTML tables</td>
-                    <td>22</td>
+                    <td class="leader__nickname"></td>
+                    <td class="leader__score"></td>
                   </tr>
                   <tr>
                     <th scope="row">8</th>
-                    <td>HTML tables</td>
-                    <td>22</td>
+                    <td class="leader__nickname"></td>
+                    <td class="leader__score"></td>
                   </tr>
                   <tr>
                     <th scope="row">9</th>
-                    <td>HTML tables</td>
-                    <td>22</td>
+                    <td class="leader__nickname"></td>
+                    <td class="leader__score"></td>
                   </tr>
                   <tr>
                     <th scope="row">10</th>
-                    <td>HTML tables</td>
-                    <td>22</td>
+                    <td class="leader__nickname"></td>
+                    <td class="leader__score"></td>
                   </tr>
                 </tbody>
               </table>
@@ -115,12 +127,52 @@
                 class="push__button"
               />
             </div>
-            <audio class="click__sound">
-              <source src="./sound/default_button_sound.mp3" type="audio/mp3" />
-            </audio>
-            <button class="game__button--save">SAVE</button>
+              <audio class="click__sound">
+                <source
+                  src="./sound/button_default_sound.mp3"
+                  type="audio/mp3"
+                />
+              </audio>
+              <button class="game__button--save">SAVE</button>
+            </div>
           </div>
         </section>
+      </div>
+      <div class="skins__setup--container">
+        <div class="skins__setup--modal">
+          <div class="skins__category">
+            <p class="skins__cursors">Cursors</p>
+            <p class="skins__buttons">Buttons</p>
+          </div>
+          <div class="skins__items">
+            <div class="items__container">
+              <img
+                src="./image/skin-button/button_default.png"
+                class="button"
+              />
+              <img src="./image/skin-button/button_bag.webp" class="button" />
+              <img src="./image/skin-button/button_like.webp" class="button" />
+              <img src="./image/skin-button/button_3d.png" class="button" />
+              <img src="./image/skin-button/button_cat.webp" class="button" />
+              <img src="./image/skin-button/button_cow.webp" class="button" />
+              <img
+                src="./image/skin-cursor/default_cursor.png"
+                class="cursor"
+              />
+              <img src="./image/skin-cursor/arrow_cursor.png" class="cursor" />
+              <img
+                src="./image/skin-cursor/arrow_cursor_straight.png"
+                class="cursor"
+              />
+              <img
+                src="./image/skin-cursor/caricature_cursor.png"
+                class="cursor"
+              />
+              <img src="./image/skin-cursor/finger_cursor.png" class="cursor" />
+              <img src="./image/skin-cursor/place_cursor.png" class="cursor" />
+            </div>
+          </div>
+        </div>
       </div>
     </main>
     <footer></footer>
