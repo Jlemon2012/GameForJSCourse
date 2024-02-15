@@ -1,5 +1,5 @@
 $(document).ready(() => {
-    // openModal();
+    openModal();
 
     const $buttonToClick = $(".push__button");
     const $currentScore = $(".game__score");
@@ -11,24 +11,78 @@ $(document).ready(() => {
     const $skinsCursorIcons = $(".cursor");
     const $skinsButtonsIcons = $(".button");
     const $upgradeMenu = $(".menu__option--upgrades");
+    const $modificator = $(".modificator");
+    const $bonus = $(".bonus");
+    const $upgradeButtonMod = $(".price-mod");
+    const $upgradeButtonBonus = $(".price-bonus");
+    const $displayMod = $(".modificator__counter");
+    const $displayBonus = $(".bonus__counter");
 
     // Global scope
-    let points = 0;
-    let pointsMultiplier = 1;
+    let points = 0.0;
+    let pointsMultiplier = 1.0;
+    let bonusPoints = 0.0;
     let userNickname = "";
+
+    $modificator.html(`Modificator: ${pointsMultiplier.toFixed(2)}`);
+    $bonus.html(`Bonus: ${bonusPoints.toFixed(2)}`);
+    $displayMod.html(`Modificator: ${pointsMultiplier.toFixed(2)}`);
+    $displayBonus.html(`Bonus: ${bonusPoints.toFixed(2)}`);
+
+    $upgradeButtonMod.on("click", () => {
+        if (points < 100) {
+            alert("You do not have enough points for this upgrade")
+        } else {
+            pointsMultiplier += 0.10;
+            points -= 100;
+            $modificator.html(`Modificator: ${pointsMultiplier.toFixed(2)}`);
+            $bonus.html(`Bonus: ${bonusPoints.toFixed(2)}`);
+            $currentScore.text(points.toFixed(2));
+        }
+    })
+    $upgradeButtonBonus.on("click", () => {
+        if (points < 250) {
+            alert("You do not have enough points for this upgrade")
+        } else {
+            bonusPoints += 0.10;
+            points -= 250;
+            $modificator.html(`Modificator: ${pointsMultiplier.toFixed(2)}`);
+            $bonus.html(`Bonus: ${bonusPoints.toFixed(2)}`);
+            $currentScore.text(points.toFixed(2));
+        }
+    })
 
     // Clicker animation and actions
     $buttonToClick.on("click", () => {
-        points += pointsMultiplier;
+        points += pointsMultiplier + bonusPoints;
         $clickSound.load();
         $clickSound.pause();
         $clickSound.currentTime = 0;
         $clickSound.play();
-        $currentScore.text(points);
+        $currentScore.text(points.toFixed(2));
         animateDefaultButtonClick ();
+        if (Number.isInteger((points/100))) {
+            bonusPoints += 0.10;
+        }
+        $displayMod.html(`Modificator: ${pointsMultiplier.toFixed(2)}`);
+        $displayBonus.html(`Bonus: ${bonusPoints.toFixed(2)}`);
     });
     $buttonToClick.on("mouseover", animateDefaultButtonHover);
     $buttonToClick.on("mouseout", animateDefaultButtonHover);
+
+    function animateDefaultButtonHover () {
+        $buttonToClick.css("transform", "scaleX(1.5)");
+        setTimeout(function() {
+            $buttonToClick.css("transform", "scaleX(1)");
+        }, 300);
+    }
+
+    function animateDefaultButtonClick () {
+        $buttonToClick.css("transform", "scaleY(0.2)");
+        setTimeout(function() {
+            $buttonToClick.css("transform", "scaleY(1)");
+        }, 100);
+    }
 
     // Save Button
     $saveButton.on("click", saveData);
@@ -47,9 +101,12 @@ $(document).ready(() => {
         $getButtonSkins.css("display", "block");
         $getCursorSkins.css("display", "none");
     } )
+
+    $upgradeMenu.on("click", openUpgrade);
     $(document).keydown((event) => {
         if (event.which === 27) {
-            closeSkins()
+            closeSkins();
+            closeUpgrade();
         }
     })
 
@@ -82,27 +139,13 @@ $(document).ready(() => {
             case "./image/skin-button/button_3d.png":
             $currentSound.attr("src", "./sound/button_3d_sound.mp3");
             break;
-            case "./image/skin-button/button_button_cat.webp":
+            case "./image/skin-button/button_cat.webp":
             $currentSound.attr("src", "./sound/button_cat_sound.mp3");
             break;
             case "./image/skin-button/button_cow.webp":
             $currentSound.attr("src", "./sound/button_cow_sound.mp3");
             break;
         }
-    }
-
-    function animateDefaultButtonHover () {
-        $buttonToClick.css("transform", "scaleX(1.5)");
-        setTimeout(function() {
-            $buttonToClick.css("transform", "scaleX(1)");
-        }, 300);
-    }
-
-    function animateDefaultButtonClick () {
-        $buttonToClick.css("transform", "scaleY(0.2)");
-        setTimeout(function() {
-            $buttonToClick.css("transform", "scaleY(1)");
-        }, 100);
     }
 
     function saveData () {
@@ -188,6 +231,22 @@ $(document).ready(() => {
         }
     }
 
+    function openUpgrade() {
+        const $overlay = $(".upgrade__setup--container");
+        const $display = $(".upgrade__setup--modal");
+        
+        $overlay.css("display", "flex");
+        $display.css("display", "grid");
+    }
+
+    function closeUpgrade() {
+        const $overlay = $(".upgrade__setup--container");
+        const $display = $(".upgrade__setup--modal");
+        
+        $overlay.css("display", "none");
+        $display.css("display", "none");
+    }
+
     // Open Skins menu
     function openSkins() {
         const $overlay = $(".skins__setup--container");
@@ -208,7 +267,7 @@ $(document).ready(() => {
     // Open, close modal window to ask Nickname
     function openModal() {
         const $overlay = $(".nickname__setup");
-        const $modal = $("#modal__nickname");
+        const $modal = $(".modal__nickname");
         const $submitButton = $(".button__submit")
 
         $overlay.css("display", "flex");
@@ -220,7 +279,7 @@ $(document).ready(() => {
 
     function closeModal() {
         const $overlay = $(".nickname__setup");
-        const $modal = $("#modal__nickname");
+        const $modal = $(".modal__nickname");
 
         $overlay.css("display", "none");
         $modal.css("display", "none");
@@ -233,7 +292,7 @@ $(document).ready(() => {
         userNickname = $nicknameInput;
         closeModal();
         } else {
-            alert("Not Correct");
+            alert("Your Nickname should contain at least 1 letter and from 4 to 16 characters (numbers are allowed)");
         }
     }
     function checkNickname(text) {

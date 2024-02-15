@@ -22,26 +22,14 @@
       <nav class="menu__container">
         <h3 class="menu__option--skins"><a href="#">Skins</a></h3>
         <h3 class="menu__option--upgrades"><a href="#">Upgrades</a></h3>
-        <div class="upgrade__setup--modal">
-          <div id="upgrade__category">
-            <p>Modificator</p>
-            <p></p>
-            <br />
-            <p>Bonus</p>
-            <p></p>
-          </div>
-          <div id="skins__items">
-            <div id="items__container"></div>
-          </div>
-        </div>
       </nav>
     </header>
     <main>
       <div class="nickname__setup">
-        <div id="modal__nickname">
+        <div class="modal__nickname">
           <label for="nicknameInput">Enter your Nickname:</label>
-          <input type="text" id="nicknameInput" />
-          <input type="submit" class="button__submit" />
+          <input type="text" id="nicknameInput" class="input__text"/>
+          <input type="submit" class="button__submit" class="submit__nickname"/>
         </div>
       </div>
       <div class="game__content container">
@@ -135,8 +123,16 @@
               </audio>
               <button class="game__button--save">SAVE</button>
             </div>
+        </section>
+        <section class="applied__modificators">
+          <div class="modificator__container">
+            <h3 class="modificator__counter"></h3>
+          </div>
+          <div class="bonus__container">
+            <h3 class="bonus__counter"></h3>
           </div>
         </section>
+      </div>
       </div>
       <div class="skins__setup--container">
         <div class="skins__setup--modal">
@@ -173,6 +169,20 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="upgrade__setup--container">
+        <div class="upgrade__setup--modal">
+        <div class="upgrade__category">
+          <h3 class="modificator"></h3>
+          <p class="price-mod">&#8593; 100 Points</p>
+          <br />
+          <h3 class="bonus">Bonus:</h3>
+          <p class="price-bonus">&#8593; 250 Points</p>
+        </div>
+        <div class="skins__items">
+          <div class="items__container"></div>
+        </div>
+      </div>
       </div>
     </main>
     <footer></footer>
