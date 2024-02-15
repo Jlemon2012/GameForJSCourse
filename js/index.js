@@ -53,12 +53,7 @@ $(document).ready(() => {
         let storedPlayerData = JSON.parse(localStorage.getItem("players")) || {};
         let playerName = playerData.nickname;
         let playerScore = playerData.score;
-
-        if (storedPlayerData.hasOwnProperty(playerName)) {
-            storedPlayerData[playerName] = playerScore;
-        } else {
-            storedPlayerData[playerName] = playerScore;
-        }
+        storedPlayerData[playerName] = playerScore;
 
         localStorage.setItem('players', JSON.stringify(storedPlayerData));
         // setData();
@@ -66,8 +61,31 @@ $(document).ready(() => {
 
     function setData() {
         let leaderBoardData = JSON.parse(window.localStorage.getItem("players"));
-        let leaderNickname = leaderBoardData.nickname;
-        let leaderScore = leaderBoardData.score;
+        let leadersArr = [];
+        for (let property in leaderBoardData) {
+        leadersArr.push(`${property} ${leaderBoardData[property]}`);
+        };
+        let numbersArr = leadersArr.map((value) => {
+            let numberScore = value.split(" ")[1];  
+            return numberScore;
+        });  
+        let leadersScore = numbersArr.map((value) => {return parseInt(value, 10)});
+        let filteredLeaders = leadersArr;
+        for (let i = 0; i < leadersScore.length; i++) {
+          let minIndex = i;
+            for (let j = i + 1; j < leadersScore.length; j++) {
+              if (leadersScore[j] > leadersScore[minIndex]) {
+                  minIndex = j;
+                }
+            }
+          let tempValue = leadersScore[minIndex];
+          leadersScore[minIndex] = leadersScore[i];
+          leadersScore[i] = tempValue;
+      
+          let tempUser = filteredLeaders[minIndex];
+          filteredLeaders[minIndex] = filteredLeaders[i];  
+          filteredLeaders[i] = tempUser;
+        }
     }
 
     function loadData () {
@@ -95,7 +113,6 @@ $(document).ready(() => {
 
     function saveNickname() {
         let $nicknameInput = $("#nicknameInput").val();
-        checkNickname($nicknameInput);
         if (checkNickname($nicknameInput) === true) {
         userNickname = $nicknameInput;
         closeModal();
@@ -105,7 +122,7 @@ $(document).ready(() => {
     }
 
     function checkNickname(text) {
-        let regex = /^[a-zA-Z0-9]{1,24}$/;
+        let regex = /^[a-zA-Z]+[0-9]{4,24}$|^[a-zA-Z0-9]{4,24}$/
         if(regex.test(text)) {
             return true;
         } else {
