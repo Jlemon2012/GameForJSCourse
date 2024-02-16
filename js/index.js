@@ -151,7 +151,7 @@ $(document).ready(() => {
     function saveData () {
         let playerData = {
             nickname: userNickname,
-            score: points
+            score: points.toFixed(2),
         }
 
         let storedPlayerData = JSON.parse(localStorage.getItem("players")) || {};
@@ -231,6 +231,8 @@ $(document).ready(() => {
         }
     }
 
+
+    // Open Upgrade menu
     function openUpgrade() {
         const $overlay = $(".upgrade__setup--container");
         const $display = $(".upgrade__setup--modal");
