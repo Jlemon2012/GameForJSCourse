@@ -23,6 +23,7 @@ $(document).ready(() => {
     let pointsMultiplier = 1.0;
     let bonusPoints = 0.0;
     let userNickname = "";
+    let previousMultipleOf100 = 0;
 
     $modificator.html(`Modificator: ${pointsMultiplier.toFixed(2)}`);
     $bonus.html(`Bonus: ${bonusPoints.toFixed(2)}`);
@@ -38,17 +39,19 @@ $(document).ready(() => {
             $modificator.html(`Modificator: ${pointsMultiplier.toFixed(2)}`);
             $bonus.html(`Bonus: ${bonusPoints.toFixed(2)}`);
             $currentScore.text(points.toFixed(2));
+            $displayMod.html(`Modificator: ${pointsMultiplier.toFixed(2)}`);
         }
     })
     $upgradeButtonBonus.on("click", () => {
         if (points < 250) {
             alert("You do not have enough points for this upgrade")
         } else {
-            bonusPoints += 0.10;
+            bonusPoints += 1;
             points -= 250;
             $modificator.html(`Modificator: ${pointsMultiplier.toFixed(2)}`);
             $bonus.html(`Bonus: ${bonusPoints.toFixed(2)}`);
             $currentScore.text(points.toFixed(2));
+            $displayBonus.html(`Bonus: ${bonusPoints.toFixed(2)}`);
         }
     })
 
@@ -61,11 +64,9 @@ $(document).ready(() => {
         $clickSound.play();
         $currentScore.text(points.toFixed(2));
         animateDefaultButtonClick ();
-        if (Number.isInteger((points/100))) {
-            bonusPoints += 0.10;
-        }
         $displayMod.html(`Modificator: ${pointsMultiplier.toFixed(2)}`);
         $displayBonus.html(`Bonus: ${bonusPoints.toFixed(2)}`);
+        $bonus.html(`Bonus: ${bonusPoints.toFixed(2)}`);
     });
     $buttonToClick.on("mouseover", animateDefaultButtonHover);
     $buttonToClick.on("mouseout", animateDefaultButtonHover);
